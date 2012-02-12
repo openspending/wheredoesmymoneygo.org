@@ -107,3 +107,48 @@ footer a, footer a:hover {
   line-height: 13px;
 }
 
+#browser .filters-current {
+  float: right;
+}
+
+#browser h2 {
+  display: none;
+}
+
+#browser table {
+  width: 100%;
+}
+
+#browser table th {
+  text-align: left;
+}
+
+#browser table th,
+#browser table tr {
+}
+
+#browser .department-facet,
+#browser .clear-search {
+  display: none;
+}
+
+#browser .num-entries {
+  float: right;
+  font-style: italic;
+}
+
+#browser input[type=text] {
+  width: 40em;
+  height: 2em;
+}
+
+#browser .pager {
+  margin-top: 1em;
+}
+
+#browser .pager ul li {
+  margin-left: 1em;
+}
+
+
+
