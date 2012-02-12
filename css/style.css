@@ -185,20 +185,13 @@ footer a, footer a:hover {
   background-color: rgba(0,0,0,0);
 }
 
-#bubbletree .label2 {
-  color: rgba(0,0,0,0);
-}
-
 #bubbletree .desc {
   font-family: "OpenSansLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 11px;
   line-height: 13px;
-  color: rgba(0,0,0,0);
 }
 
 #bubbletree .amount {
   font-family: Palatino, georgia, 'times new roman', serif;
   font-size: 14px;
-  line-height: 22px;
-  color: rgba(0,0,0,0);
 }
