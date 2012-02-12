@@ -1,0 +1,85 @@
+
+/* OKFN Brand font, not related to WDMMG. */
+
+@font-face {
+  font-family: 'OpenSansLight';
+  src: url('../img/opensans-light-webfont.eot');
+  src: url('../img/opensans-light-webfont.eot?#iefix') format('embedded-opentype'), url('../img/opensans-light-webfont.woff') format('woff'), url('../img/opensans-light-webfont.ttf') format('truetype'), url('opensans-light-webfont.svg#OpenSansLight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html {
+  background-color: #222222;
+}
+
+body {
+  min-height: 80%;
+}
+
+body, p, blockquote p {
+  font-family: Palatino, georgia, 'times new roman', serif;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+blockquote p {
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+a {
+  color: #830242;
+}
+
+#logo {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+#logo #claim {
+  margin-top: -10px;
+  font-style: italic;
+  /*letter-spacing: 1px;*/
+  color: #999999;
+  font-size: 1.1em;
+}
+
+
+/* 
+ * Nav and Footer styles based on OKFN brand design. 
+ */
+
+nav ul li, 
+footer,
+footer p {
+  font-family: "OpenSansLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+nav ul.nav.nav-tabs li {
+  float: right;
+}
+
+footer {
+  background: #222222 url('../img/okfn-watermark.png') top right no-repeat;
+  margin-top: 50px;
+  padding: 0;
+}
+
+footer > .inner {
+  background: url('../img/footer-bevel.png') top repeat-x;
+  padding: 10px 0 30px 0;
+  color: #fff;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
+  min-height: 190px;
+}
+
+footer ul.footer-links {
+}
+
+footer a, footer a:hover {
+  color: #AEEBDF;
+}
