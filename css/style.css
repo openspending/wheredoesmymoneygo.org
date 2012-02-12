@@ -46,6 +46,10 @@ a {
   font-size: 1.1em;
 }
 
+#logo a:hover {
+  text-decoration: none;
+}
+
 
 /* 
  * Nav and Footer styles based on OKFN brand design. 
