@@ -101,7 +101,7 @@ Where do I find help?
 If you need any support in setting up a WDMMG fork, please let us know! 
 
 * `OpenSpending Developers List <http://lists.okfn.org/mailman/listinfo/openspending-dev>`_
-* `Issue Tracker https://github.com/openspending/wheredoesmymoneygo.org/issues>`_ at 
+* `Issue Tracker <https://github.com/openspending/wheredoesmymoneygo.org/issues>`_ at 
   GitHub (please report any problems here.
 * Also join us at ``#openspending`` on FreeNode
 
