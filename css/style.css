@@ -33,6 +33,11 @@ a {
   color: #830242;
 }
 
+.spaced {
+  margin-top: 3em;
+  margin-bottom: 0em;
+}
+
 #logo {
   padding-top: 1em;
   padding-bottom: 0em;
@@ -50,6 +55,9 @@ a {
   text-decoration: none;
 }
 
+.main-header {
+  text-align: center;
+}
 
 /* 
  * Nav and Footer styles based on OKFN brand design. 
@@ -165,14 +173,20 @@ footer a, footer a:hover {
   background-color: rgba(0,0,0,0);
 }
 
+#bubbletree .label2 {
+  color: rgba(0,0,0,0);
+}
+
 #bubbletree .desc {
   font-family: "OpenSansLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 11px;
   line-height: 13px;
+  color: rgba(0,0,0,0);
 }
 
 #bubbletree .amount {
   font-family: Palatino, georgia, 'times new roman', serif;
   font-size: 14px;
   line-height: 22px;
+  color: rgba(0,0,0,0);
 }
