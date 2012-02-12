@@ -3,13 +3,10 @@ layout: default
 title: Country & Regional Analysis
 ---
 	
-<!--<script src="js/libs/kartograph-chroma.min.js"></script>-->
-
-<script>
+<script type="text/js">
 (function ($) {
 
   window.wdmmg_cramap = {};
-// http://assets.openspending.org/openspendingjs/master
 
   yepnope([
    { load: 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js' },	
@@ -53,9 +50,8 @@ title: Country & Regional Analysis
 		var onNodeClick = function(node) {
 		
 			var 
-			
-			hcl = chroma.hex(node.color).hcl(),
-			
+			// create a nice colorscale based on the selected bubble color
+			hcl = chroma.hex(node.color).hcl(),			
 			colsc = new chroma.ColorScale({
 				colors: [
 					chroma.hcl(hcl[0], Math.min(1,hcl[1]), .95),
@@ -70,6 +66,7 @@ title: Country & Regional Analysis
 				limits: chroma.limits(node.breakdownsByName, 'q', 8, 'amount')
 			});
 			
+			// apply colors to map
 			wdmmg_cramap.map.choropleth({
 				data: node.breakdownsByName,
 				value: 'amount',
@@ -112,6 +109,7 @@ title: Country & Regional Analysis
 					})
 				}
 			});
+			
 			// init map
 			
 			var map = wdmmg_cramap.map = $K.map('#cm-map');
@@ -125,9 +123,7 @@ title: Country & Regional Analysis
      }
    }
   ]); // yepnope()   
-
-    
-  })(jQuery)
+})(jQuery)
 </script>
     
     
