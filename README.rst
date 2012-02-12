@@ -36,3 +36,72 @@ you can either host the site yourself, or let `GitHub Pages`_ do it.
 .. _`load it into OpenSpending`: http://wiki.openspending.org/Loading_into_OpenSpending
 .. _`fork this repository`: http://help.github.com/fork-a-repo/
 .. _`GitHub Pages`: http://pages.github.com/
+
+
+What is in this repository?
+---------------------------
+
+The Where Does My Money Go repository contains a basic layout for the site, based on
+Twitter's `Bootstrap 2`_ CSS framework, as well as inclusion code samples for most of
+the widgets available for OpenSpending: the `BubbleTree`_ diagram, the Daily Bread 
+custom tax breakdown and a search interface for transactional spending information, 
+used for the UK's departmental spend.
+
+.. _`Bootstrap 2`: http://twitter.github.com/bootstrap/
+.. _`BubbleTree`: https://github.com/okfn/bubbletree
+
+
+How do I build the site?
+------------------------
+
+The pages in this repository are built to their final form by combining them with
+the template in ``_layouts/default.html`` using `Jekyll`_, a Ruby-based static site 
+generator. To build the site, you first need to `install Jekyll` (works on either
+Mac OS X or Linux)::
+
+  sudo gem install jekyll
+
+After that, you can simply build the site or even run a local web server::
+
+  jeykll --server --auto
+
+If you cannot install jekyll for some reason, you can still experiment with the site
+by deploying its contents after each change.
+
+The easiest way to deploy the site is via GitHub pages. To use them, simply adapt the
+``CNAME`` file in the root of the repository and push to the ``gh-pages`` branch. All
+pages will be automatically built and deployed.
+
+.. _`Jekyll`: https://github.com/mojombo/jekyll
+.. _`install Jekyll`: https://github.com/mojombo/jekyll/wiki/install
+
+
+What customizations should I make if I set up my own site?
+----------------------------------------------------------
+
+In order to create a new, white-label site, there are a number of easy tweaks you can
+make. 
+
+* Edit the configuration file in ``_config.yml`` to set the overall site title and 
+  some basic parameters, such as the OpenSpending installation to be used. Further 
+  configuration options, mostly regarding page generation, are available for Jekyll.
+* The JavaScript initializations for each of the widgets need to be customized; in 
+  particular the dataset name needs to be set and an appropriate set of break down
+  dimensions needs to be set for the BubbleTree and DailyBread.
+* Adapt the style sheet in ``css/style.css`` to use your own theming; in particular 
+  fonts and colorization.
+* Replace ``img/logo.png`` to set a custom logo.
+* Edit the basic HTML structure of the project in ``_layouts/default.html`` to extend
+  or shorten the menu and any other page elements.
+
+
+Where do I find help?
+---------------------
+
+If you need any support in setting up a WDMMG fork, please let us know! 
+
+* `OpenSpending Developers List <http://lists.okfn.org/mailman/listinfo/openspending-dev>`_
+* `Issue Tracker https://github.com/openspending/wheredoesmymoneygo.org/issues>`_ at 
+  GitHub (please report any problems here.
+* Also join us at ``#openspending`` on FreeNode
+
