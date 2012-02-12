@@ -87,3 +87,23 @@ footer ul.footer-links {
 footer a, footer a:hover {
   color: #AEEBDF;
 }
+
+
+/* 
+ * Visualization-specific styles. 
+ */
+
+#dailybread {
+  min-height: 20em;
+}
+
+#dailbread #db-topbar div h2 {
+  text-transform: none;
+}
+
+#dailybread .db-area-title h3 {
+  font-family: "OpenSansLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 13px;
+}
+
