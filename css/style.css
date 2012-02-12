@@ -35,7 +35,7 @@ a {
 
 #logo {
   padding-top: 1em;
-  padding-bottom: 1em;
+  padding-bottom: 0em;
 }
 
 #logo #claim {
@@ -150,5 +150,29 @@ footer a, footer a:hover {
   margin-left: 1em;
 }
 
+.row .bubbletree-wrapper {
+  height: 600px;
+  position: relative;
+}
 
+#bubbletree {
+  margin: 0 auto;
+  width: 940px;
+  height: 550px;
+}
 
+#bubbletree .label {
+  background-color: rgba(0,0,0,0);
+}
+
+#bubbletree .desc {
+  font-family: "OpenSansLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 13px;
+}
+
+#bubbletree .amount {
+  font-family: Palatino, georgia, 'times new roman', serif;
+  font-size: 14px;
+  line-height: 22px;
+}
