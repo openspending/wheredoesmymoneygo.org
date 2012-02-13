@@ -1,0 +1,144 @@
+---
+layout: default
+title: Country & Regional Analysis
+---
+	
+<script type="text/js">
+(function ($) {
+
+  window.wdmmg_cramap = {};
+
+  yepnope([
+   { load: 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js' },	
+   { load: 'css/cra-map.css' },
+   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/raphael-min.js' },	
+   { load: 'http://assets.openspending.org/openspendingjs/master/lib/aggregator.js' },	
+   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/bubbletree/1.0/bubbletree.js' },	
+   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/vis4.js' },	
+   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/Tween.js' },	
+   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/jquery.history.js' },	
+   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/bubbletree/1.0/bubbletree.css' },
+   { load: 'js/libs/chroma.js' },
+   { load: 'js/libs/kartograph.min.js' },
+   { load: 'js/libs/bubbletree.cofog.js',
+     complete: function() {
+
+		$('#preloader .txt').html('loading spending data');
+
+		var $tooltip = $('<div class="tooltip">Tooltip</div>');
+		$('.bubbletree').append($tooltip);
+		$tooltip.hide();
+		
+		var tooltip = function(event) {
+			if (event.type == 'SHOW') {
+				// show tooltip
+				vis4.log(event);
+				$tooltip.css({ 
+					left: event.mousePos.x + 4, 
+					top: event.mousePos.y + 4 
+				});
+				$tooltip.html(event.node.label+' <b>'+event.node.famount+'</b>');
+				var bubble = event.target;
+				
+				$tooltip.show();
+			} else {
+				// hide tooltip
+				$tooltip.hide();
+			}
+		};
+	
+		var onNodeClick = function(node) {
+		
+			var 
+			// create a nice colorscale based on the selected bubble color
+			hcl = chroma.hex(node.color).hcl(),			
+			colsc = new chroma.ColorScale({
+				colors: [
+					chroma.hcl(hcl[0], Math.min(1,hcl[1]), .95),
+					chroma.hcl(hcl[0], Math.min(1.2,hcl[1]), .8),
+					chroma.hcl(hcl[0], Math.min(1.3,hcl[1]), .7),
+					chroma.hcl(hcl[0], Math.min(1.4,hcl[1]), .6),
+					chroma.hcl(hcl[0], Math.min(1.5,hcl[1]), .5),
+					chroma.hcl(hcl[0], Math.min(1.6,hcl[1]), .4),
+					chroma.hcl(hcl[0], Math.min(1.8,hcl[1]), .3),
+					chroma.hcl(hcl[0], Math.min(2,hcl[1]), .2)
+				],
+				limits: chroma.limits(node.breakdownsByName, 'q', 8, 'amount')
+			});
+			
+			// apply colors to map
+			wdmmg_cramap.map.choropleth({
+				data: node.breakdownsByName,
+				value: 'amount',
+				colors: function(d) {
+					if (d === null || isNaN(d.amount)) return '#ccc';
+					return colsc.getColor(d.amount);
+				}
+				//,duration: 200
+			});
+		};
+		
+		$(function() {
+			// init bubbletree
+			new OpenSpending.Aggregator({
+				apiUrl: 'http://openspending.org/api',
+				//localApiCache: 'aggregate.json',
+				dataset: 'ukgov-finances-cra',
+				drilldowns: ['cofog1', 'cofog2', 'cofog3'],
+				cuts: ['year:2008'],
+				rootNodeLabel: 'Grant total', 
+				breakdown: 'region',
+				callback: function(data) {
+					
+					$('#preloader').remove();
+					
+					wdmmg_cramap.bt = new BubbleTree({
+						data: data,
+						container: '#cm-bubbletree',
+						bubbleType: 'icon',
+						nodeClickCallback: onNodeClick,
+						firstNodeCallback: onNodeClick,
+						rootPath: 'icons/',
+						//tooltipCallback: tooltip,
+						bubbleStyles: {
+							'cofog-1':  BubbleTree.Styles.Cofog1,
+							'cofog-2':  BubbleTree.Styles.Cofog2,
+							'cofog-3':  BubbleTree.Styles.Cofog3
+						},
+						clearColors: true, // remove all colors coming from OpenSpending API
+					})
+				}
+			});
+			
+			// init map
+			
+			var map = wdmmg_cramap.map = $K.map('#cm-map');
+    	 	map.loadMap('img/gbr.svg', function() {
+     			map.addLayer('IRL');
+     			map.addLayer({ id: 'GBR', key: 'region' });
+     		}); // map.loadMap(function())
+		
+		}); // complete: function() {
+     
+     }
+   }
+  ]); // yepnope()   
+})(jQuery)
+</script>
+    
+    
+<div id="cra-map">
+  <h2 class="page-header">Country & Regional Analysis</h2>
+  
+  <div id="preloader"><img src="img/ajax-loader.gif" style="vertical-align:top" /> &nbsp;<span class="txt">loading javascript libraries</span></div>
+
+  <div id="cm-bt">
+  	<div class="bubbletree-wrapper">
+  		<div id="cm-bubbletree" class="bubbletree"></div>
+  	</div>	
+  </div>
+  <div id="cm-map">
+  
+  </div>
+</div><!-- /#cra-map -->
+
