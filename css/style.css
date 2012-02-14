@@ -16,7 +16,6 @@
     src: url("../img/opensans-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../img/opensans-semibold-webfont.woff") format("woff"), url("../img/opensans-semibold-webfont.ttf") format("truetype"), url("../img/opensans-semibold-webfont.svg#OpenSansLight") format("svg");
 }
 
-
 html {
   background-color: #222222;
 }
@@ -80,6 +79,12 @@ footer p {
 
 nav ul.nav.nav-tabs li {
   float: right;
+}
+
+nav ul.nav.nav-tabs li a.active {
+  color: #000;
+  font-weight: bold;
+  font-family: OpenSansSemibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 footer {
