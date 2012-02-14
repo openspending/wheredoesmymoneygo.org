@@ -1,6 +1,10 @@
 Where Does My Money Go?
 =======================
 
+This archive serves to functions: it is the source code for the Where Does My Money Go?
+web site and a template that can be used to easily create custom budget and spending 
+visualization sites.
+
 `Where Does My Money Go?`_ aims to promote transparency and citizen engagement through 
 the analysis and visualisation of information about UK public spending. The site was
 launched in 2009 and merged with `OffenerHaushalt`_ in 2010 to form the `OpenSpending`_
