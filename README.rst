@@ -23,6 +23,26 @@ derived.
 .. _`OpenSpending`: http://openspending.org
 .. _`API`: http://openspending.org/help/api.html
 
+The repository contains a basic layout for the site, based on Twitter's `Bootstrap 2`_
+CSS framework, and a skeleton site based on Jekyll, a simple generator tool for static
+web sites. The key component is code samples for embedding most of the widgets that are
+currently available for OpenSpending: 
+
+.. _`Bootstrap 2`: http://twitter.github.com/bootstrap/
+
+* ``bubbletree.html`` holds the classic `BubbleTree <https://github.com/okfn/bubbletree>`_ 
+  diagram, which can be used to easily break down a multi-level hierarchy of 
+  classifications (such as the COFOG codes in the UK budget).
+* ``bubbletree-map.html`` combines the BubbleTree and a simple vector map of the UK. This 
+  would be more work to adapt for a custom site, but the beautiful view may well be worth
+  the effort.
+* ``dailybread.html`` contains the Daily Bread custom tax viewer, which breaks down
+  government expenditure over the approximate tax contribution of the visitor.
+* ``spending.html`` is a search interface for transactional spending information, used 
+  for the UK's departmental spend in this example. This is useful for datasets which are 
+  too unstructured for proper aggregation but contain interesting information at a
+  detailed level.
+
 
 How do I make a budget site for my own country/region?
 ------------------------------------------------------
@@ -36,19 +56,6 @@ you can either host the site yourself, or let `GitHub Pages`_ do it.
 .. _`load it into OpenSpending`: http://wiki.openspending.org/Loading_into_OpenSpending
 .. _`fork this repository`: http://help.github.com/fork-a-repo/
 .. _`GitHub Pages`: http://pages.github.com/
-
-
-What is in this repository?
----------------------------
-
-The Where Does My Money Go repository contains a basic layout for the site, based on
-Twitter's `Bootstrap 2`_ CSS framework, as well as inclusion code samples for most of
-the widgets available for OpenSpending: the `BubbleTree`_ diagram, the Daily Bread 
-custom tax breakdown and a search interface for transactional spending information, 
-used for the UK's departmental spend.
-
-.. _`Bootstrap 2`: http://twitter.github.com/bootstrap/
-.. _`BubbleTree`: https://github.com/okfn/bubbletree
 
 
 How do I build the site?
