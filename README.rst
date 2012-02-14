@@ -120,9 +120,13 @@ your needs:
   GitHub (please report any problems here.
 * Also join us on the ``#openspending`` channel on the FreeNode IRC network
 
-The Open Knowledge Foundation can also offer support to build a customized site 
-about government finance, to help you create your own visualizations to answer
-specific questions, or to set service level agreements about the availability of
-our platform. Please get in touch with the OpenSpending project at 
-info@openspending.org. We'd love to work with you!
+The OpenSpending team can also offer tailored support to build a customized site
+about government finance, to help you create your own visualizations or to answer
+specific questions related to budgetary or spending data.
+
+This additional level of support comes with service level agreements and is ideal for
+projects working to a tight deadline, those looking for new-types of visualisation,
+high-stake or long term projects. If you are interested in finding out more about our
+availability and what we can offer please get in touch with the OpenSpending project
+at info@openspending.org. We'd love to work with you!
 
