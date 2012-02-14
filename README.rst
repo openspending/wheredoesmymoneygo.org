@@ -1,7 +1,7 @@
 Where Does My Money Go?
 =======================
 
-This archive serves to functions: it is the source code for the Where Does My Money Go?
+This archive serves two functions: it is the source code for the Where Does My Money Go?
 web site and a template that can be used to easily create custom budget and spending 
 visualization sites.
 
@@ -20,9 +20,7 @@ What is in this repository?
 
 Where Does My Money Go runs as an application on top of `OpenSpending`_. All data is
 stored in the platform and the visualizations and search are driven directly from
-its `API`_. As well as providing the source code for the WDMMG live site, this code
-base is also intended as an example on which other OpenSpending apps can be
-derived.
+its `API`_. 
 
 .. _`OpenSpending`: http://openspending.org
 .. _`API`: http://openspending.org/help/api.html
@@ -105,14 +103,26 @@ make.
 * Edit the basic HTML structure of the project in ``_layouts/default.html`` to extend
   or shorten the menu and any other page elements.
 
+To get a basic understanding of the terminology and concepts involved in the API 
+calls to OpenSpending, take a few minutes to read up on the technical background:
+`How does OpenSpending store data? <http://openspending.org/help/api-olap.html>`_
+
 
 Where do I find help?
 ---------------------
 
-If you need any support in setting up a WDMMG fork, please let us know! 
+The Where Does My Money Go? repository is a community-supported resource and there
+are several places where you can call on the community to help you customize it for 
+your needs:
 
 * `OpenSpending Developers List <http://lists.okfn.org/mailman/listinfo/openspending-dev>`_
 * `Issue Tracker <https://github.com/openspending/wheredoesmymoneygo.org/issues>`_ at 
   GitHub (please report any problems here.
-* Also join us at ``#openspending`` on FreeNode
+* Also join us on the ``#openspending`` channel on the FreeNode IRC network
+
+The Open Knowledge Foundation can also offer support to build a customized site 
+about government finance, to help you create your own visualizations to answer
+specific questions, or to set service level agreements about the availability of
+our platform. Please get in touch with the OpenSpending project at 
+info@openspending.org. We'd love to work with you!
 
