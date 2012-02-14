@@ -7,6 +7,8 @@ title: Country & Regional Analysis
 (function ($) {
 
   window.wdmmg_cramap = {};
+  
+  var year = '2010';
 
   yepnope.errorTimeout = 1000;
 
@@ -103,8 +105,8 @@ title: Country & Regional Analysis
 				apiUrl: 'http://openspending.org/api',
 				dataset: 'ukgov-finances-cra',
 				drilldowns: ['cofog1', 'cofog2', 'cofog3'],
-				cuts: ['year:2008'],
-				rootNodeLabel: 'Grant total', 
+				cuts: ['year:'+year],
+				rootNodeLabel: 'Grand Total ('+year+')', 
 				breakdown: 'region',
 				callback: function(data) {
 					
@@ -158,9 +160,7 @@ title: Country & Regional Analysis
     
     
 <div id="cra-map">
-  <h2 class="page-header">Country & Regional Analysis</h2>
-  
-  <div id="preloader"><img src="img/ajax-loader.gif" style="vertical-align:top" /> &nbsp;<span class="txt">loading javascript libraries</span></div>
+  <div id="preloader" style="text-align: center; padding: 100px"><img src="img/ajax-loader.gif" style="vertical-align:top" /> &nbsp;<span class="txt">loading javascript libraries</span></div>
 
   <div id="cm-bt">
   	<div class="bubbletree-wrapper">

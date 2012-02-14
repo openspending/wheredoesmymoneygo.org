@@ -62,7 +62,7 @@
 #cm-map {
 	position: absolute;
 	left: 550px;
-	top: 70px;
+	top: 10px;
 	width: 390px;
 	height: 500px;
 }
@@ -83,7 +83,7 @@
 #cm-map-legend {
 	position: absolute;
 	right: -10px;
-	top: 80px;
+	top: 10px;
 	width: 100px;
 	height: 200px;
 }
