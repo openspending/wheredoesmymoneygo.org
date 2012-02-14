@@ -9,6 +9,13 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: "OpenSansSemibold";
+    font-style: normal;
+    font-weight: 600;
+    src: url("../img/opensans-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../img/opensans-semibold-webfont.woff") format("woff"), url("../img/opensans-semibold-webfont.ttf") format("truetype"), url("../img/opensans-semibold-webfont.svg#OpenSansLight") format("svg");
+}
+
 
 html {
   background-color: #222222;
