@@ -7,9 +7,9 @@ title: Country Regional Analysis
 <script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/raphael-min.js"></script>
 <script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/vis4.js"></script>
 <script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/Tween.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/bubbletree/1.0/bubbletree.js"></script>
+<script type="text/javascript" src="js/libs/bubbletree.js"></script>
 <script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/aggregator.js"></script>	
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/app/dailybread/js/cofog.js"></script>
+<script type="text/javascript" src="js/libs/bubbletree.cofog.js"></script>
 	
 <link rel="stylesheet" type="text/css" href="http://assets.openspending.org/openspendingjs/master/lib/vendor/bubbletree/1.0/bubbletree.css" />
 
@@ -45,9 +45,12 @@ title: Country Regional Analysis
 					container: '#bubbletree',
 					bubbleType: 'icon',
 					bubbleStyles: {
-						'cofog': BubbleTree.Styles.Cofog
+							'cofog-1':  BubbleTree.Styles.Cofog1,
+							'cofog-2':  BubbleTree.Styles.Cofog2,
+							'cofog-3':  BubbleTree.Styles.Cofog3
 					},
-					rootPath: '../../',
+					clearColors: true, // remove all colors coming from OpenSpending API
+					rootPath: 'icons/',
 					tooltipCallback: tooltip
 				});
 			};

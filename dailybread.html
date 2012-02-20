@@ -3,63 +3,87 @@ layout: default
 title: The Daily Bread
 ---
 
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/ui-lightness/jquery-ui.css">
-<!-- link rel="stylesheet" href="http://wheredoesmymoneygo.org/wp-content/themes/wdmmg/wdmmg.css" -->
-<link rel="stylesheet" href="http://assets.openspending.org/openspendingjs/master/app/dailybread/css/dailybread.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<script src="http://assets.openspending.org/openspendingjs/master/lib/vendor/underscore.js"></script>
-<script src="http://assets.openspending.org/openspendingjs/master/lib/vendor/raphael-min.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/aggregator.js"></script>
-<script src="http://assets.openspending.org/openspendingjs/master/app/dailybread/js/cofog.js"></script>
-<script src="http://assets.openspending.org/openspendingjs/master/app/dailybread/js/dailybread.js"></script>
 <script>
-(function ($) {
-  $(function () {
-    var db = new OpenSpending.DailyBread($('#dailybread'));
-    new OpenSpending.Aggregator({
-          apiUrl: 'http://openspending.org/api',
-          //localApiCache: 'aggregate.json',
-          dataset: 'ukgov-finances-cra',
-          drilldowns: ['cofog1', 'cofog2', 'cofog3'],
-          cuts: ['year:2008'],
-          rootNodeLabel: 'Total', 
-          breakdown: 'region',
-          callback: function(data) {
-            db.setDataFromAggregator(data, ['unknown']);
-            db.setIconLookup(function(name) {
-              var style = OpenSpending.Styles.Cofog[name];
-              if (style != undefined) {
-                return style['icon'];
-              }
-              return 'icons/unknown.svg';
-            });
-            db.draw();
-          }
-        });
-    })
-  })(jQuery)
+
+var os_path = 'http://assets.openspending.org/openspendingjs/master';
+
+yepnope({
+	load: [
+		// 'http://wheredoesmymoneygo.org/wp-content/themes/wdmmg/wdmmg.css',
+		'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/ui-lightness/jquery-ui.css',
+		'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js',
+		'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js',
+		os_path + '/lib/vendor/underscore.js',
+		os_path + '/lib/vendor/raphael-min.js',
+		os_path + '/lib/aggregator.js',
+		os_path + '/app/dailybread/css/dailybread.css',
+		os_path + '/app/dailybread/js/cofog.js',
+		os_path + '/app/dailybread/js/dailybread.js'
+	],
+	complete: function() {
+	
+		(function ($) {
+		
+		  $(function () {
+		    
+		  	 $('#preloader .txt').html('loading data');
+		  	 
+			 var db = new OpenSpending.DailyBread($('#dailybread'));
+			 new OpenSpending.Aggregator({
+					 apiUrl: 'http://openspending.org/api',
+					 //localApiCache: 'aggregate.json',
+					 dataset: 'ukgov-finances-cra',
+					 drilldowns: ['cofog1', 'cofog2', 'cofog3'],
+					 cuts: ['year:2008'],
+					 rootNodeLabel: 'Total', 
+					 breakdown: 'region',
+					 callback: function(data) {
+			
+						$('#content-wrap').show();
+						$('#preloader').remove();
+		  	 
+						db.setDataFromAggregator(data, ['unknown']);
+						db.setIconLookup(function(name) {
+						  var style = OpenSpending.Styles.Cofog[name];
+						  if (style != undefined) {
+							 return style['icon'];
+						  }
+						  return 'icons/unknown.svg';
+						});
+						db.draw();
+					 }
+				  });
+			 })
+		  })(jQuery)	
+	}
+});
+
+
 </script>
     
 <div id="dailybread">
   <h2 class="page-header">The Daily Bread <small> Costs for the British Taxpayer per Day</small></h2>
 
-  <div id="db-topbar" class="layout-row layout-3col-15-70-15">
-    <div id="db-salary" class="layout-col layout-col-1">
-      <h2>Salary</h2>
-      <p>£22,000</p>
-    </div>
+  <div id="preloader" style="text-align: center; padding: 100px"><img src="img/ajax-loader.gif" style="vertical-align:top" /> &nbsp;<span class="txt">loading javascript libraries</span></div>
 
-    <div id="db-slider" class="layout-col layout-col-2">
-      <h2>Select your salary</h2>
-      <div class="wdmmg-slider"></div>
-    </div>
-
-    <div id="db-tax" class="layout-col layout-col-3">
-      <h2>Your tax</h2>
-      <p>£31.12</p>
-    </div>
-  </div><!-- /#db-topbar -->
+  <div id="content-wrap" style="display:none">
+	  <div id="db-topbar" class="layout-row layout-3col-15-70-15">
+		 <div id="db-salary" class="layout-col layout-col-1">
+			<h2>Salary</h2>
+			<p>£22,000</p>
+		 </div>
+	
+		 <div id="db-slider" class="layout-col layout-col-2">
+			<h2>Select your salary</h2>
+			<div class="wdmmg-slider"></div>
+		 </div>
+	
+		 <div id="db-tax" class="layout-col layout-col-3">
+			<h2>Your tax</h2>
+			<p>£31.12</p>
+		 </div>
+	  </div><!-- /#db-topbar -->
+  </div>
 
 </div><!-- /#dailybread -->
 

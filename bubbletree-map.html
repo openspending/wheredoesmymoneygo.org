@@ -8,29 +8,35 @@ title: Country & Regional Analysis
 
   window.wdmmg_cramap = {};
   
+  var os_path = 'http://assets.openspending.org/openspendingjs/master';
   var year = '2010';
 
   yepnope.errorTimeout = 1000;
 
   yepnope([
-   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/raphael-min.js' },	
-   { load: 'http://assets.openspending.org/openspendingjs/master/lib/aggregator.js' },	
-   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/bubbletree/2.0/bubbletree.js',
+   { load: [
+   	os_path + '/lib/vendor/raphael-min.js',	
+   	os_path + '/lib/aggregator.js',	
+   	os_path + '/lib/vendor/bubbletree/2.0/bubbletree.js'
+     ], 
      complete: function() {
+       // fall back to local bubbletree
        if (!window.BubbleTree) {
-         yepnope('js/libs/bubbletree.min.js');
+         yepnope('js/libs/bubbletree.js?nocacheplease='+Math.random());
        }
      }
    },	
-   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/vis4.js' },	
-   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/Tween.js' },	
-   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/jquery.history.js' },	
-   { load: 'http://assets.openspending.org/openspendingjs/master/lib/vendor/bubbletree/1.0/bubbletree.css' },
-   { load: 'css/cra-map.css' },
-   { load: 'js/libs/chroma.js' },
-   { load: 'js/libs/jquery.qtip.min.js' },
-   { load: 'js/libs/kartograph.min.js' },
-   { load: 'js/libs/bubbletree.cofog.js',
+   { load: [
+   	os_path + '/lib/vendor/vis4.js',	
+   	os_path + '/lib/vendor/Tween.js',	
+   	os_path + '/lib/vendor/jquery.history.js',	
+   	os_path + '/lib/vendor/bubbletree/1.0/bubbletree.css',
+   	'css/cra-map.css',
+   	'js/libs/chroma.js',
+   	'js/libs/jquery.qtip.min.js',
+   	'js/libs/kartograph.min.js',
+   	'js/libs/bubbletree.cofog.js'
+     ],
      complete: function() {
 
 		$('#preloader .txt').html('loading spending data');
@@ -113,9 +119,10 @@ title: Country & Regional Analysis
 					$('#preloader').remove();
 					$('#cm-map').show();
 
+
 					wdmmg_cramap.bt = new BubbleTree({
 						data: data,
-						container: '#cm-bubbletree',
+						container: '#bubbletree',
 						bubbleType: 'icon',
 						nodeClickCallback: onNodeClick,
 						firstNodeCallback: onNodeClick,
@@ -140,16 +147,17 @@ title: Country & Regional Analysis
 			// init map
 			
 			var map = wdmmg_cramap.map = $K.map('#cm-map');
-    	 	map.loadMap('img/gbr.svg', function() {
-     			map.addLayer('IRL');
-     			map.addLayer({ 
-     				id: 'GBR', 
-     				key: 'region'
-     			});
-     		}); // map.loadMap(function())
+    	 	map.loadStyles('css/cra-map.css', function() {
+				map.loadMap('img/gbr.svg', function() {
+					map.addLayer('IRL');
+					map.addLayer({ 
+						id: 'GBR', 
+						key: 'region'
+					});
+				}); // map.loadMap(function())
+     		}); // map.loadStyles(function())
      		
      		$('#cm-map').hide();
-		
 		}); // complete: function() {
      
      }
@@ -164,7 +172,7 @@ title: Country & Regional Analysis
 
   <div id="cm-bt">
   	<div class="bubbletree-wrapper">
-  		<div id="cm-bubbletree" class="bubbletree"></div>
+  		<div id="bubbletree" class="bubbletree"></div>
   	</div>	
   </div>
   <div id="cm-map-legend"></div>
