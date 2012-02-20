@@ -17,23 +17,23 @@
 	width: 550px;
 }
 
-#bubbletree .label {
+#cm-bubbletree .label {
 	background: transparent;
 	padding: 0; 
 	margin: 0;
 }
 
-#bubbletree .label .amount {
+#cm-bubbletree .label .amount {
 	font-weight: normal;
 }
 
-#bubbletree .label .desc {
+#cm-bubbletree .label .desc {
 	font-family: "OpenSansLight","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: normal;
 	line-height: 1.2em;
 }
 
-#bubbletree .label2 {
+#cm-bubbletree .label2 {
 	line-height: 1.2em;
 	font-family: "OpenSansLight","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
@@ -42,13 +42,13 @@
 	background: rgba(255,255,255,.7);
 }
 
-#bubbletree .label2.current {
+#cm-bubbletree .label2.current {
 	font-weight: bold;
 	font-family: OpenSansSemibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 12px;
 }
 
-#bubbletree .label.current .desc {
+#cm-bubbletree .label.current .desc {
 	font-weight: bold;
 	font-family: OpenSansSemibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 12px;
