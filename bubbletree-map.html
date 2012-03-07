@@ -22,7 +22,7 @@ title: Country & Regional Analysis
      complete: function() {
        // fall back to local bubbletree
        if (!window.BubbleTree) {
-         yepnope('js/libs/bubbletree.js?nocacheplease='+Math.random());
+         yepnope(os_path + '/lib/vendor/bubbletree/2.0/bubbletree.js?nocacheplease='+Math.random());
        }
      }
    },	
@@ -32,10 +32,10 @@ title: Country & Regional Analysis
    	os_path + '/lib/vendor/jquery.history.js',	
    	os_path + '/lib/vendor/bubbletree/1.0/bubbletree.css',
    	'css/cra-map.css',
-   	'js/libs/chroma.js',
-   	'js/libs/jquery.qtip.min.js',
-   	'js/libs/kartograph.min.js',
-   	'js/libs/bubbletree.cofog.js'
+   	os_path + '/lib/vendor/chroma.js',
+   	os_path + '/lib/vendor/jquery.qtip.min.js',
+   	os_path + '/lib/vendor/kartograph.min.js',
+   	os_path + '/lib/vendor/bubbletree/2.0/bubbletree.cofog.js'
      ],
      complete: function() {
 
