@@ -70,6 +70,8 @@ Mac OS X or Linux)::
 
   sudo gem install jekyll
 
+A good tutorial for Windows is available `here`_.
+
 After that, you can simply build the site or even run a local web server::
 
   jeykll --server --auto
@@ -83,6 +85,7 @@ pages will be automatically built and deployed.
 
 .. _`Jekyll`: https://github.com/mojombo/jekyll
 .. _`install Jekyll`: https://github.com/mojombo/jekyll/wiki/install
+.. _`here`: http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html
 
 
 What customizations should I make if I set up my own site?
