@@ -72,9 +72,10 @@ Mac OS X or Linux)::
 
 A good tutorial for Windows is available `here`_.
 
-After that, you can simply build the site or even run a local web server::
+After that, you can simply build the site or even run a local web server by running
+this command from the repository root directory::
 
-  jeykll --server --auto
+  jekyll --server --auto
 
 If you cannot install jekyll for some reason, you can still experiment with the site
 by deploying its contents after each change.
