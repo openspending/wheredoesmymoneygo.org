@@ -108,10 +108,15 @@ footer a, footer a:hover {
   color: #AEEBDF;
 }
 
-
 /* 
  * Visualization-specific styles. 
  */
+
+#db-frame {
+  width: 100%;
+  min-height: 20em;
+  border: none;
+}
 
 #dailybread {
   min-height: 20em;
