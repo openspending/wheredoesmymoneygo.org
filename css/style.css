@@ -200,3 +200,15 @@ footer a, footer a:hover {
   font-family: Palatino, georgia, 'times new roman', serif;
   font-size: 14px;
 }
+
+.okfn-ribbon {
+  background-image: url(http://assets.okfn.org/web/images/okf-ribbon.png);
+  background-repeat: no-repeat;
+  background-position: center 0px;
+  float:right;
+  width:48px;
+  height:100px;
+  margin-top: -36px;
+  display:block;
+}
+
