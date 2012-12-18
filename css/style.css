@@ -71,13 +71,13 @@ nav ul.nav.nav-tabs li a.active {
 }
 
 footer {
-  background: #222222 url('../img/okfn-watermark.png') top right no-repeat;
+  background: #222222 url('http://assets.okfn.org/web/images/okfn-watermark.png') top right no-repeat;
   margin-top: 50px;
   padding: 0;
 }
 
 footer > .inner {
-  background: url('../img/footer-bevel.png') top repeat-x;
+  background: url('http://assets.okfn.org/web/images/footer-bevel.png') top repeat-x;
   padding: 10px 0 30px 0;
   color: #fff;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
