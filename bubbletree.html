@@ -37,13 +37,13 @@ title: Country Regional Analysis
 					},
 					clearColors: true, // remove all colors coming from OpenSpending API
 					rootPath: 'icons/',
-						tooltip: {
-							qtip: true,
-							delay: 800,
-							content: function(node) {
-								return [node.label, '<div class="desc">'+(node.description ? node.description : 'No description given')+'</div><div class="amount">£ '+node.famount+'</div>'];
-							}
+					tooltip: {
+						qtip: true,
+						delay: 800,
+						content: function(node) {
+							return [node.label, '<div class="desc">'+(node.description ? node.description : 'No description given')+'</div><div class="amount">£ '+node.famount+'</div>'];
 						}
+					}
 				});
 			};
 			
