@@ -2,5 +2,5 @@ pygments: true
 auto: true
 
 title: Where Does My Money Go?
-openspendingjs: 'http://localhost/openspendingjs'
+openspendingjs: 'http://openspending.org/static/openspendingjs'
 
