@@ -1,127 +1,92 @@
+---
+layout: blank
+title: The Daily Bread
+---
 
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<div class="container">
 
-  <title>The Daily Bread - Where Does My Money Go?</title>
-  <meta name="description" content="We show the story of where the UK taxpayer money is spent through beautiful visualizations.">
-  <meta name="viewport" content="width=device-width">
+  <div id="dailybread">
+    <h2 class="page-header">The Daily Bread <small> Costs for the British Taxpayer per Day</small></h2>
 
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-  <script src="js/libs/modernizr-2.5.3.min.js"></script>
-  <style>
-    body, html { background-color: white; }
-  </style>
-</head>
-<body>
-  <!--[if lt IE 7]>
-    <p class=chromeframe>
-      Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
-    </p>
-  <![endif]-->
+    <div id="preloader" style="text-align: center; padding: 100px"><img src="/img/ajax-loader.gif" style="vertical-align:top" /> &nbsp;<span class="txt">loading javascript libraries</span></div>
 
-  <div class="container">
+    <div id="content-wrap" style="display:none">
+      <div id="db-topbar" class="layout-row layout-3col-15-70-15">
+       <div id="db-salary" class="layout-col layout-col-1">
+        <h2>Salary</h2>
+        <p>£22,000</p>
+       </div>
+    
+       <div id="db-slider" class="layout-col layout-col-2">
+        <h2>Select your salary</h2>
+        <div class="wdmmg-slider"></div>
+       </div>
+    
+       <div id="db-tax" class="layout-col layout-col-3">
+        <h2>Your tax</h2>
+        <p>£8,621</p>
+       </div>
+      </div><!-- /#db-topbar -->
+    </div>
 
-    <div id="dailybread">
-      <h2 class="page-header">The Daily Bread <small> Costs for the British Taxpayer per Day</small></h2>
+  </div><!-- /#dailybread -->
 
-      <div id="preloader" style="text-align: center; padding: 100px"><img src="img/ajax-loader.gif" style="vertical-align:top" /> &nbsp;<span class="txt">loading javascript libraries</span></div>
+</div><!-- /.container -->
 
-      <div id="content-wrap" style="display:none">
-        <div id="db-topbar" class="layout-row layout-3col-15-70-15">
-         <div id="db-salary" class="layout-col layout-col-1">
-          <h2>Salary</h2>
-          <p>£22,000</p>
-         </div>
-      
-         <div id="db-slider" class="layout-col layout-col-2">
-          <h2>Select your salary</h2>
-          <div class="wdmmg-slider"></div>
-         </div>
-      
-         <div id="db-tax" class="layout-col layout-col-3">
-          <h2>Your tax</h2>
-          <p>£8,621</p>
-         </div>
-        </div><!-- /#db-topbar -->
-      </div>
+<script>
+(function () {
+  var os_path = '{{site.openspendingjs}}';
 
-    </div><!-- /#dailybread -->
-
-  </div><!-- /.container -->
-
-  <script>
-  (function () {
-    var os_path = 'http://openspending.org/static/openspendingjs';
-
-    var db_load_data = function load_data(db, data) {
-      $('#content-wrap').show();
-      $('#preloader').remove();
-      
-      db.setDataFromAggregator(data, ['unknown']);
-      db.setIconLookup(function(name) {
-        var style = OpenSpending.Styles.Cofog[name];
-        if (style != undefined) {
-         return style['icon'];
-        }
-        return 'icons/unknown.svg';
-      });
-      db.draw();
-    } 
-
-    var db_init = function db_init() {
-      $('#preloader .txt').html('loading data');
-      
-      var db = new OpenSpending.DailyBread($('#dailybread'));   
-
-      new OpenSpending.Aggregator({
-        apiUrl: 'http://openspending.org/api',
-        dataset: 'ukgov-finances-cra',
-        drilldowns: ['cofog1', 'cofog2', 'cofog3'],
-        cuts: ['year:2008'],
-        rootNodeLabel: 'Total', 
-        breakdown: 'region',
-        callback: function (data) { db_load_data(db, data); }
-      });
-    }
-
-    yepnope({
-      load: [
-        // 'http://wheredoesmymoneygo.org/wp-content/themes/wdmmg/wdmmg.css',
-        'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/ui-lightness/jquery-ui.css',
-        'http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js',
-        'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js',
-        os_path + '/lib/vendor/base64.js',
-        os_path + '/lib/vendor/underscore.js',
-        os_path + '/lib/vendor/raphael-min.js',
-        os_path + '/lib/aggregator.js',
-        os_path + '/app/dailybread/css/dailybread.css',
-        os_path + '/app/dailybread/js/cofog.js',
-        os_path + '/app/dailybread/js/dailybread.js'
-      ],
-      complete: function () { jQuery(function ($) { db_init() } ); }
+  var db_load_data = function load_data(db, data) {
+    $('#content-wrap').show();
+    $('#preloader').remove();
+    
+    db.setDataFromAggregator(data, ['unknown']);
+    db.setIconLookup(function(name) {
+      var style = OpenSpending.Styles.Cofog[name];
+      if (style != undefined) {
+       return style['icon'];
+      }
+      return 'img/functions/unknown.svg';
     });
+    db.draw();
+  } 
 
-  }());
-  </script>
+  var db_init = function db_init() {
+    $('#preloader .txt').html('loading data');
+    
+    var db = new OpenSpending.DailyBread($('#dailybread'));   
 
-  <script>
-    var _gaq=[['_setAccount','UA-8271754-8'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
+    new OpenSpending.Aggregator({
+      apiUrl: 'http://openspending.org/api',
+      dataset: 'ukgov-finances-cra',
+      drilldowns: ['cofog1', 'cofog2', 'cofog3'],
+      cuts: ['year:2008'],
+      rootNodeLabel: 'Total', 
+      breakdown: 'region',
+      callback: function (data) { db_load_data(db, data); }
+    });
+  }
 
-</body>
-</html>
+  yepnope({
+    load: [
+      // 'http://wheredoesmymoneygo.org/wp-content/themes/wdmmg/wdmmg.css',
+      'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/ui-lightness/jquery-ui.css',
+      'http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js',
+      'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js',
+      os_path + '/lib/vendor/base64.js',
+      os_path + '/lib/vendor/underscore.js',
+      os_path + '/lib/vendor/raphael-min.js',
+      os_path + '/lib/aggregator.js',
+      os_path + '/app/dailybread/css/dailybread.css',
+      '/img/functions/cofog_dailybread.js',
+      os_path + '/app/dailybread/js/dailybread.js'
+    ],
+    complete: function () { jQuery(function ($) { db_init() } ); }
+  });
 
+}());
+</script>
 
 
 
