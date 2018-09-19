@@ -14,6 +14,7 @@ title: Country and Regional Analysis
        new OpenSpending.BubbleMap({
           openspendingjs: '{{site.openspendingjs}}',
           query: {
+            apiUrl: 'https://legacy.openspending.org/api',
             dataset: 'ukgov-finances-cra',
             cuts: ['year:2010'],
             drilldowns: ['cofog1', 'cofog2', 'cofog3'],
@@ -45,7 +46,7 @@ title: Country and Regional Analysis
   <div id="wdmmg-bt">
     <div class="bubbletree-wrapper">
         <div id="wdmmg-bubbletree" class="bubbletree"></div>
-    </div>  
+    </div>
   </div>
   <div id="wdmmg-map-legend" class="under-curtain"></div>
   <div id="wdmmg-map" class="under-curtain"></div>
