@@ -5,27 +5,27 @@ title: Departmental Spending
 
 <h2 class="page-header">Departmental Spending <small> Transactions over £ 25,000</small></h2>
 
-<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
 
   <!-- /ajax-solr Libraries -->
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/Core.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/AbstractManager.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/managers/Manager.jquery.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/Parameter.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/ParameterStore.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/AbstractWidget.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/AbstractFacetWidget.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/widgets/jquery/PagerWidget.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/Core.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/AbstractManager.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/managers/Manager.jquery.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/Parameter.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/ParameterStore.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/AbstractWidget.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/core/AbstractFacetWidget.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/vendor/ajax-solr/widgets/jquery/PagerWidget.js"></script>
 <!-- /Vendor Libraries -->
 
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/utils/utils.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/lib/datastore.js"></script>
-<script type="text/javascript" src="http://assets.openspending.org/openspendingjs/master/app/spend-browser/js/search.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/utils/utils.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/lib/datastore.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/assets.openspending.org/openspendingjs/master/app/spend-browser/js/search.js"></script>
 
 <script type="text/javascript">
   jQuery(document).ready(function($) {
     var config = {
-      endpoint: 'http://openspending.org/',
+      endpoint: 'https://openspending.org/',
       target: '#browser',
       dataset: 'ukgov-25k-spending'
     };
