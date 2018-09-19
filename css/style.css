@@ -48,11 +48,11 @@ a {
   text-align: center;
 }
 
-/* 
- * Nav and Footer styles based on OKFN brand design. 
+/*
+ * Nav and Footer styles based on OKFN brand design.
  */
 
-nav ul li, 
+nav ul li,
 footer,
 footer p {
   font-family: "OpenSansLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -71,13 +71,13 @@ nav ul.nav.nav-tabs li a.active {
 }
 
 footer {
-  background: #222222 url('http://assets.okfn.org/web/images/okfn-watermark.png') top right no-repeat;
+  background: #222222 url('https://assets.okfn.org/web/images/okfn-watermark.png') top right no-repeat;
   margin-top: 50px;
   padding: 0;
 }
 
 footer > .inner {
-  background: url('http://assets.okfn.org/web/images/footer-bevel.png') top repeat-x;
+  background: url('https://assets.okfn.org/web/images/footer-bevel.png') top repeat-x;
   padding: 10px 0 30px 0;
   color: #fff;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);
@@ -91,8 +91,8 @@ footer a, footer a:hover {
   color: #AEEBDF;
 }
 
-/* 
- * Visualization-specific styles. 
+/*
+ * Visualization-specific styles.
  */
 
 #db-frame {
@@ -185,7 +185,7 @@ footer a, footer a:hover {
 }
 
 .okfn-ribbon {
-  background-image: url(http://assets.okfn.org/web/images/okf-ribbon.png);
+  background-image: url(https://assets.okfn.org/web/images/okf-ribbon.png);
   background-repeat: no-repeat;
   background-position: center 0px;
   float:right;
